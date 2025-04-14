@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Buku XYZ - Katalog Best Novel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Catalog Page Styles */
+        #catalog-page {
+            display: block;
+        }
+        .catalog-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #2c3e50;
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .book {
+            width: 220px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .book:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .book img {
+            width: 160px;
+            height: 240px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+        .book-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+        
+        /* Detail Page Styles */
+        .detail-page {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .book-header {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .book-cover {
+            flex: 0 0 250px;
+            margin-right: 30px;
+        }
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .book-info {
+            flex: 1;
+        }
+        .book-info h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .book-meta {
+            margin: 20px 0;
+        }
+        .book-meta p {
+            margin: 8px 0;
+        }
+        .book-description {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toko Buku XYZ</h1>
+    </header>
+
+    <div class="container">
+        <!-- Catalog Page -->
+        <div id="catalog-page">
+            <h2 class="catalog-title">Katalog Best Novel</h2>
+            
+            <div class="book-container">
+                <div class="book" onclick="showDetail('killing-commendatore')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001233/image003-34-364x569.jpg" alt="Killing Commendatore">
+                    <div class="book-title">Killing Commendatore</div>
+                </div>
+                
+                <div class="book" onclick="showDetail('wonderful-wizard')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001241/image005-27-364x570.jpg" alt="Alma Classick: The Wonderful Wizard Of Oz">
+                    <div class="book-title">Alma Classick: The Wonderful Wizard Of Oz</div>
+                </div>
+                
+                <div class="book" onclick="showDetail('circe')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001249/image007-27-364x593.jpg" alt="Circe, Massmarket">
+                    <div class="book-title">Circe, Massmarket</div>
+                </div>
+                
+                <div class="book" onclick="showDetail('percy-jackson')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001300/image009-18.jpg" alt="Percy Jackson Series">
+                    <div class="book-title">Percy Jackson Series</div>
+                </div>
+                
+                <div class="book" onclick="showDetail('hope-punchlines')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001312/image014-3-364x585.jpg" alt="Hope And Other Punch Lines">
+                    <div class="book-title">Hope And Other Punch Lines</div>
+                </div>
+                
+                <div class="book" onclick="showDetail('mischievous-god')">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001318/image016-1-364x562.jpg" alt="In The Hands of A Mischievous God">
+                    <div class="book-title">In The Hands of A Mischievous God</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail Pages -->
+        <!-- Killing Commendatore -->
+        <div id="killing-commendatore" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001233/image003-34-364x569.jpg" alt="Killing Commendatore">
+                </div>
+                
+                <div class="book-info">
+                    <h2>Killing Commendatore</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> Haruki Murakami</p>
+                        <p><strong>Tahun Terbit:</strong> 1 Oktober 2019</p>
+                        <p><strong>Penerbit:</strong> Random House US</p>
+                        <p><strong>Jumlah Halaman:</strong> 752</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Buku Killing Commendatore bercerita tentang seorang pelukis potret berusia tiga puluhan yang ditinggalkan oleh istrinya. Ia kemudian mengasingkan diri di rumah pegunungan seorang seniman terkenal dunia. Suatu hari, pelukis muda itu mendengar suara dari loteng, dan setelah diselidiki, dia menemukan lukisan yang sebelumnya tidak terlihat.</p>
+                        <p>Dengan menggali karya seni tersembunyi ini, dia secara tidak sengaja membuka lingkaran keadaan misterius, dan untuk menutupnya, dia harus melakukan perjalanan berbahaya ke dunia bawah sadar yang hanya bisa disulap oleh Haruki Murakami. Sebuah kisah tour de force cinta dan kesepian, perang dan seni, Killing Commendatore adalah karya imajinasi yang menakjubkan dari salah satu penulis terhebat di jepang ini.</p>
+                        <p>Haruki Murakami sudah terkenal dengan karya-karyanya yang luar biasa hingga membuat namanya terkenal di kancah sastra dunia. Itulah sebabnya novel karya yang bisa terbilang masih baru ini layak kamu masuk list bacaan novel berbahasa Inggris di Gramedia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- The Wonderful Wizard Of Oz -->
+        <div id="wonderful-wizard" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001241/image005-27-364x570.jpg" alt="Alma Classick: The Wonderful Wizard Of Oz">
+                </div>
+                
+                <div class="book-info">
+                    <h2>Alma Classick: The Wonderful Wizard Of Oz</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> L Frank Baum</p>
+                        <p><strong>Tahun Terbit:</strong> 11 Desember 2019</p>
+                        <p><strong>Penerbit:</strong> Bloomsbury UK</p>
+                        <p><strong>Jumlah Halaman:</strong> 224</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Buku Alma Classics: The Wonderful Wizard Of Oz bercerita tentang tokoh anak muda bernama Dorothy dan anjingnya yang bernama Toto terjebak dalam topan, dan masuk ke rumah pertanian Kansas. Mereka akhirnya dibawa ke Tanah Oz yang ajaib. Setelah diberitahu bahwa satu-satunya jalan kembali adalah mengikuti jalan bata kuning ke Kota Zamrud, rumah bagi Wizard of Oz.</p>
+                        <p>Dorothy memulai pencarian yang luar biasa namun berbahaya, di mana Penyihir Jahat dari Barat terus-menerus mengintai di tiap tikungan jalanan yang akan mereka lewati. Dengan pemeran karakter ikonik yang tak terlupakan seperti Tin Man, Scarecrow, dan Cowardly Lion, membuat buku The Wonderful Wizard of Oz jadi populer ketika diterbitkan lebih dari seabad yang lalu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Circe, Massmarket -->
+        <div id="circe" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001249/image007-27-364x593.jpg" alt="Circe, Massmarket">
+                </div>
+                
+                <div class="book-info">
+                    <h2>Circe, Massmarket</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> Madeline Miller</p>
+                        <p><strong>Tahun Terbit:</strong> 17 Januari 2020</p>
+                        <p><strong>Penerbit:</strong> Sinar Star Book</p>
+                        <p><strong>Jumlah Halaman:</strong> 420</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Penceritaan ulang yang berani dalam buku Circe dan juga subversif dalam menampilkan kisah dewi. Wajar saja jika buku karya Madeline Miller ini jadi buku terlaris nomor satu versi New York Times dan jadi buku best seller internasional. Buku ini baik epik dan intim dalam cakupannya, menampilkan kembali sosok wanita paling terkenal dari Odyssey sebagai phero dalam dirinya sendiri.</p>
+                        <p>Tepatnya di rumah Helios yang merupakan dewa matahari dan Titan terkuat, seorang putri lahir bernama Circe. Tapi Circe adalah anak yang aneh dan tidak kuat seperti ayahnya. Selain itu juga tidak memikat seperti ibunya. Beralih ke dunia manusia untuk menjalin persahabatan, dia menemukan bahwa dia memiliki kekuatan, yakni kekuatan sihir yang dapat mengubah musuh menjadi monster dan mengancam para dewa sendiri.</p>
+                        <p>Merasa terancam, Zeus membuangnya ke pulau terpencil, di mana dia mengasah keahlian okultismenya, menjinakkan binatang buas, dan berpapasan dengan banyak tokoh paling terkenal di semua mitologi, termasuk Minotaur, Daedalus dan putranya yang terkutuk Icarus, Medea yang pembunuh, dan tentu saja, Odysseus yang cerdik. Namun tetap ada bahayanya juga, bagi seorang wanita yang hanya berdiri sendiri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Percy Jackson Series -->
+        <div id="percy-jackson" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001300/image009-18.jpg" alt="Percy Jackson Series">
+                </div>
+                
+                <div class="book-info">
+                    <h2>Percy Jackson Series</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> Rick Riordan</p>
+                        <p><strong>Tahun Terbit Pertama:</strong> 2005</p>
+                        <p><strong>Penerbit:</strong> Disney Hyperion</p>
+                        <p><strong>Jumlah Buku:</strong> 5</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Apakah Grameds ingat serial Percy Jackson? Seri novel Percy Jackson & Olympian terdiri dari lima buku. Buku pertamanya, Lightning Thief, bercerita tentang seorang anak laki-laki bernama Percy Jackson yang menderita disleksia dan ADHD. Dalam perjalanan sekolah ke Museum Seni Metropolitan, seorang guru berubah menjadi monster dan mencoba membunuh Percy.</p>
+                        <p>Hal ini membuat ibu Percy memutuskan bahwa sudah waktunya untuk mengungkapkan identitas Percy. Percy dikirim oleh ibunya ke Perkemahan Half Blood, di mana dia mengetahui bahwa dia adalah seorang setengah dewa (keturunan manusia dan dewa) dan putra Poseidon. Percy ditugaskan untuk memecahkan misteri yang bisa menyebabkan perang antara para dewa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hope And Other Punch Lines -->
+        <div id="hope-punchlines" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001312/image014-3-364x585.jpg" alt="Hope And Other Punch Lines">
+                </div>
+                
+                <div class="book-info">
+                    <h2>Hope And Other Punch Lines</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> Julie Buxbaum</p>
+                        <p><strong>Tahun Terbit:</strong> 29 Oktober 2019</p>
+                        <p><strong>Penerbit:</strong> Sinar Star Book</p>
+                        <p><strong>Jumlah Halaman:</strong> 306</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Penulis buku terlaris The New York Times Julie Buxbaum dalam bukunya yang berjudul Hope And Other Punch Lines menyampaikan kisah yang menyentuh dan penuh harapan tentang ketahanan dan penemuan kembali, cinta pertama dan persahabatan seumur hidup, warisan kehilangan, dan kisah-kisah yang kita ceritakan kepada diri kita sendiri untuk bertahan hidup.</p>
+                        <p>Terkadang melihat ke masa lalu membantu kita bisa menemukan masa depan. Tokoh Abbi Hope Goldstein seperti remaja lainnya, dengan beberapa pengecualian kecil: alter egonya yang terkenal. Abbi telah menjalani hampir seluruh hidupnya dalam bayang-bayang serangan teroris 11 September.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- In The Hands of A Mischievous God -->
+        <div id="mischievous-god" class="detail-page">
+            <a href="#" class="back-link" onclick="showCatalog()">← Kembali ke Katalog</a>
+            
+            <div class="book-header">
+                <div class="book-cover">
+                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/18001318/image016-1-364x562.jpg" alt="In The Hands of A Mischievous God">
+                </div>
+                
+                <div class="book-info">
+                    <h2>In The Hands of A Mischievous God</h2>
+                    
+                    <div class="book-meta">
+                        <p><strong>Penulis:</strong> Theodora Sarah Abigail</p>
+                        <p><strong>Tahun Terbit:</strong> 18 Desember 2017</p>
+                        <p><strong>Penerbit:</strong> Kepustakaan Populer Gramedia</p>
+                        <p><strong>Jumlah Halaman:</strong> 256</p>
+                    </div>
+                    
+                    <div class="book-description">
+                        <p>Novel berbahasa Inggris di Gramedia ini adalah perjalanan penemuan diri yang sangat bergejolak, dan dikhawatirkan begitu akhirnya tiba di ambang pintu maka akan diketuk dan pintu akan terbuka untuk mengungkapkan sebuah rumah kosong. Buku In the Hands of a Mischievous God adalah potret intim seorang seniman muda dan ingatannya yang paling awal.</p>
+                        <p>Koleksi yang menakjubkan ini ditulis dengan kejujuran dari refleksi di kamar-kamar di rumah masa kecilnya hingga pandangannya tentang konsep cinta. Setiap kisah mengikuti benang merah takdir dan mengeksplorasi apa artinya bagi seorang gadis untuk tumbuh dewasa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show book detail page
+        function showDetail(bookId) {
+            // Hide catalog page
+            document.getElementById('catalog-page').style.display = 'none';
+            
+            // Hide all detail pages
+            var detailPages = document.getElementsByClassName('detail-page');
+            for (var i = 0; i < detailPages.length; i++) {
+                detailPages[i].style.display = 'none';
+            }
+            
+            // Show selected detail page
+            document.getElementById(bookId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Function to show catalog page
+        function showCatalog() {
+            // Show catalog page
+            document.getElementById('catalog-page').style.display = 'block';
+            
+            // Hide all detail pages
+            var detailPages = document.getElementsByClassName('detail-page');
+            for (var i = 0; i < detailPages.length; i++) {
+                detailPages[i].style.display = 'none';
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Prevent default link behavior
+            return false;
+        }
+    </script>
+</body>
+</html>
