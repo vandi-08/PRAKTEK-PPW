@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Buku Tamu & Biodata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f2f2f2;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .submit-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Form Buku Tamu</h2>
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td>Subject</td>
+                <td><input type="text" name="subject"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Isi Pesan</td>
+                <td><textarea name="pesan" rows="4"></textarea></td>
+            </tr>
+        </table>
+
+        <h2>Form Biodata</h2>
+        <table border="1">
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" name="nama"></td>
+                <td>Tempat Lahir</td>
+                <td><input type="text" name="tempat_lahir"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="text" name="tanggal_lahir"></td>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
+                    <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td colspan="3">
+                    <select name="agama">
+                        <option value="">-- Pilih Agama --</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td colspan="3"><textarea name="alamat" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="no_telepon"></td>
+                <td>Hobi</td>
+                <td>
+                    <input type="checkbox" name="hobi[]" value="Membaca"> Membaca
+                    <input type="checkbox" name="hobi[]" value="Olahraga"> Olahraga
+                    <input type="checkbox" name="hobi[]" value="Musik"> Musik
+                    <input type="checkbox" name="hobi[]" value="Main Game"> Main Game
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <strong>Riwayat Pendidikan</strong><br><br>
+                    <table width="100%">
+                        <tr>
+                            <td>SD</td>
+                            <td><input type="text" name="sd"></td>
+                        </tr>
+                        <tr>
+                            <td>SMP</td>
+                            <td><input type="text" name="smp"></td>
+                        </tr>
+                        <tr>
+                            <td>SMA</td>
+                            <td><input type="text" name="sma"></td>
+                        </tr>
+                        <tr>
+                            <td>S1</td>
+                            <td><input type="text" name="s1"></td>
+                        </tr>
+                        <tr>
+                            <td>S2</td>
+                            <td><input type="text" name="s2"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div class="submit-button">
+            <button type="submit">SIMPAN</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
