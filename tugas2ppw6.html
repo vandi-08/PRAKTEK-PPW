@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Data Diri dan Riwayat Pendidikan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+            vertical-align: top;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="#" method="post">
+
+    <!-- Data Diri -->
+    <fieldset>
+        <legend>Data Diri</legend>
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Tempat Lahir</td>
+                <td><input type="text" name="tempat_lahir"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggal_lahir"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <input type="radio" name="jenis_kelamin" value="Laki-Laki"> Laki-Laki
+                    <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td>
+                    <select name="agama">
+                        <option>Islam</option>
+                        <option>Kristen</option>
+                        <option>Katolik</option>
+                        <option>Hindu</option>
+                        <option>Buddha</option>
+                        <option>Konghucu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><textarea name="alamat" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td>No. Telepon</td>
+                <td><input type="text" name="telepon"></td>
+            </tr>
+            <tr>
+                <td>No. HP</td>
+                <td><input type="text" name="hp"></td>
+            </tr>
+            <tr>
+                <td>Hobi</td>
+                <td>
+                    <input type="checkbox" name="hobi[]" value="Membaca"> Membaca
+                    <input type="checkbox" name="hobi[]" value="Olahraga"> Olahraga
+                    <input type="checkbox" name="hobi[]" value="Musik"> Musik
+                    <input type="checkbox" name="hobi[]" value="Main Games"> Main Games
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <!-- Riwayat Pendidikan -->
+    <fieldset>
+        <legend>Riwayat Pendidikan</legend>
+        <table>
+            <tr>
+                <td>S3</td>
+                <td><input type="text" name="s3"></td>
+            </tr>
+            <tr>
+                <td>S2</td>
+                <td><input type="text" name="s2"></td>
+            </tr>
+            <tr>
+                <td>S1</td>
+                <td><input type="text" name="s1"></td>
+            </tr>
+            <tr>
+                <td>D3</td>
+                <td><input type="text" name="d3"></td>
+            </tr>
+            <tr>
+                <td>SMA</td>
+                <td><input type="text" name="sma"></td>
+            </tr>
+            <tr>
+                <td>SMP</td>
+                <td><input type="text" name="smp"></td>
+            </tr>
+            <tr>
+                <td>SD</td>
+                <td><input type="text" name="sd"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <button type="submit">Kirim</button>
+
+</form>
+
+</body>
+</html>
