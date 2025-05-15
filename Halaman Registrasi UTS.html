@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        img {
+            display: block;
+            margin: 0 auto 15px;
+        }
+        p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Halaman Registrasi -->
+    <div id="registrationPage" class="container">
+        <h2>Halaman Registrasi</h2>
+        <form onsubmit="handleRegister(event)">
+            <input type="email" id="regEmail" placeholder="Alamat Email" required>
+            <input type="password" id="regPassword" placeholder="Kata Sandi" required>
+            <input type="tel" id="regPhone" placeholder="Nomor Telepon" pattern="[0-9]+" required>
+            <input type="date" id="regDob" required>
+            <input type="text" id="regAddress" placeholder="Alamat Lengkap" required>
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <!-- Halaman Login -->
+    <div id="loginPage" class="container hidden">
+        <h2>Halaman Login</h2>
+        <form onsubmit="handleLogin(event)">
+            <input type="email" id="loginEmail" placeholder="Alamat Email" required>
+            <input type="password" id="loginPassword" placeholder="Kata Sandi" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Halaman Profil -->
+    <div id="profilePage" class="container hidden">
+        <h2>Profil Pengguna</h2>
+        <img src="images/lamineyamal.jpg" alt="Foto Profil" style="width:120px; height:120px; border-radius: 50%;">
+        <p><strong>Nama Lengkap:</strong> <span id="profileName">Lamine Yamal</span></p>
+        <p><strong>Kelas:</strong> <span id="profileClass">XII-C</span></p>
+        <p><strong>Umur:</strong> <span id="profileAge">17</span> tahun</p>
+        <p><strong>Alamat:</strong> <span id="profileAddress">304, Barcelona, Refroranda.Spain</span></p>
+        <button onclick="handleLogout()">Logout</button>
+    </div>
+
+    <script>
+        let userData = {};
+
+        function handleRegister(e) {
+            e.preventDefault();
+            userData.email = document.getElementById('regEmail').value;
+            userData.password = document.getElementById('regPassword').value;
+            userData.phone = document.getElementById('regPhone').value;
+            userData.dob = document.getElementById('regDob').value;
+            userData.address = document.getElementById('regAddress').value;
+
+            document.getElementById('registrationPage').classList.add('hidden');
+            document.getElementById('loginPage').classList.remove('hidden');
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (email === userData.email && password === userData.password) {
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('profilePage').classList.remove('hidden');
+                document.getElementById('profileAddress').textContent = userData.address;
+            } else {
+                alert("Email atau Kata Sandi salah!");
+            }
+        }
+
+        function handleLogout() {
+            document.getElementById('profilePage').classList.add('hidden');
+            document.getElementById('loginPage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
